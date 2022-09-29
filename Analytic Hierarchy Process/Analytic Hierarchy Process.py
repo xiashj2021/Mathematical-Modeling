@@ -42,7 +42,7 @@ def consistency_test(eig_max, n):
     ci = (eig_max - n) / (n - 1)  # 计算一致性指标CI
     # 平均随机一致性指标表RI
     ri = [0, 0.00001, 0.52, 0.89, 1.12, 1.26, 1.36, 1.41, 1.46, 1.49, 1.52, 1.54, 1.56, 1.58, 1.59]
-    cr = ci / ri[n + 1]  # 计算一致性比例CR
+    cr = ci / ri[n - 1]  # 计算一致性比例CR
     print("一致性指标CI = ", ci)
     print("一致性比例CR = ", cr)
 
