@@ -65,15 +65,15 @@ end
 %% 矩阵标准化
 function [Z] = matStandard(mat)
     Z = mat ./ repmat(sum(mat.*mat) .^ 0.5, n, 1);
-    disp('标准化矩阵 Z = ');
+    disp('标准化矩阵为：');
     disp(Z);
 end
 %                                                                                        matStandard.m
 
 %% 计算得分并归一化
 function matNormal(mat, n)
-    Dplus = sum([(mat - repmat(max(mat), n, 1)) .^ 2],2) .^ 0.5;   % D+ 与最大值的距离向量
-    Dnegative = sum([(mat - repmat(min(mat),n,1)) .^ 2], 2) .^ 0.5;   % D- 与最小值的距离向量
+    Dplus = sum((mat - repmat(max(mat), n, 1)) .^ 2, 2) .^ 0.5;   % D+即与最大值的距离向量
+    Dnegative = sum((mat - repmat(min(mat),n,1)) .^ 2, 2) .^ 0.5;   % D-即与最小值的距离向量
     S = Dnegative ./ (Dplus + Dnegative);    % 未归一化的得分
     disp('最后的得分为：');
     standMat = S / sum(S) % 向量归一化
