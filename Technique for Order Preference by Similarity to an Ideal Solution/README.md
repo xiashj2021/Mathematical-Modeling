@@ -25,7 +25,7 @@ function [mat, n] = matPositive(mat)
                 X = mat(:, positionVector(i));
                 disp(['第' num2str(positionVector(i)) '列指标是中间型，正在正向化：']);
                 best = input('请输入最佳的那一个值：');
-                M = max(abs(X)-best);
+                M = max(abs(X-best));
                 X = 1 - abs(X-best) / M;
                 mat(:, positionVector(i)) = X;
                 disp(['第' num2str(positionVector(i)) '列指标中间型正向化处理完成']);
@@ -150,7 +150,7 @@ def mat_positive(mat):
                 x = mat[:, position_vector[0][i] - 1]
                 print(f'第{position_vector[0][i]}列指标是中间型，正在正向化：')
                 best = eval(input('请输入最佳的那一个值：'))
-                m = np.max(np.absolute(x) - best)
+                m = np.max(np.absolute(x - best))
                 x = 1 - np.absolute(x - best) / m
                 print(f'第{position_vector[0][i]}列指标中间型正向化处理完成')
                 print('-----------------------------------------------------')
