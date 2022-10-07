@@ -175,7 +175,7 @@ def mat_positive(mat):
                         after_process_x[j] = 1
                 print(f'第{position_vector[0][i]}列指标区间型正向化处理完成')
                 print('-----------------------------------------------------')
-                mat[:, position_vector[0][i] - 1] = after_process_x.reshape(20,)
+                mat[:, position_vector[0][i] - 1] = after_process_x.reshape(row,)
 
         print('正向化后的矩阵为：\n', mat)
     return [mat, row]
